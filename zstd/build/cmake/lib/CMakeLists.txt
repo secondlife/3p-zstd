@@ -102,6 +102,7 @@ if (MSVC)
     endif ()
     if (ZSTD_BUILD_STATIC)
         set_property(TARGET libzstd_static APPEND PROPERTY COMPILE_DEFINITIONS "ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS")
+        target_compile_options(libzstd_static PUBLIC "/Z7")
     endif ()
 endif ()
 
