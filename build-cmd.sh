@@ -221,14 +221,11 @@ pushd "$ZSTD_SOURCE_DIR/build/cmake"
                         -DCMAKE_BUILD_TYPE=Debug \
                         -DCMAKE_C_FLAGS="$DEBUG_CFLAGS" \
                         -DCMAKE_CXX_FLAGS="$DEBUG_CXXFLAGS" \
-                        -DCMAKE_INSTALL_PREFIX="$stage/install_debug"
+                        -DCMAKE_INSTALL_PREFIX="$stage" \
+                        -DCMAKE_INSTALL_LIBDIR="$stage/lib/debug"
 
                 cmake --build . --config Debug --parallel $AUTOBUILD_CPU_COUNT -v
                 cmake --install . --config Debug
-
-                mkdir -p ${stage}/lib/debug
-                mv ${stage}/install_debug/lib/*.so* ${stage}/lib/debug
-                mv ${stage}/install_debug/lib/*.a* ${stage}/lib/debug
             popd
 
             # Release
@@ -241,14 +238,11 @@ pushd "$ZSTD_SOURCE_DIR/build/cmake"
                         -DCMAKE_BUILD_TYPE=Release \
                         -DCMAKE_C_FLAGS="$RELEASE_CFLAGS" \
                         -DCMAKE_CXX_FLAGS="$RELEASE_CXXFLAGS" \
-                        -DCMAKE_INSTALL_PREFIX="$stage/install_release"
+                        -DCMAKE_INSTALL_PREFIX="$stage" \
+                        -DCMAKE_INSTALL_LIBDIR="$stage/lib/release"
 
                 cmake --build . --config Release --parallel $AUTOBUILD_CPU_COUNT
                 cmake --install . --config Release
-
-                mkdir -p ${stage}/lib/release
-                mv ${stage}/install_release/lib/*.so* ${stage}/lib/release
-                mv ${stage}/install_release/lib/*.a* ${stage}/lib/release
             popd
         ;;
     esac

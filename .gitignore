@@ -1,3 +1,5 @@
 openjpeg/build/
 stage/
 autobuild-parabuild-bootstrap/
+*.tar.*
+zstd/build/cmake/build*
