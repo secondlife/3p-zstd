@@ -1,3 +1,6 @@
+This repository contains a vendored version of the Zstandard library with its own license.
+See zstd/LICENSE.
+
 MIT License
 
 Copyright (c) Linden Research, Inc.
