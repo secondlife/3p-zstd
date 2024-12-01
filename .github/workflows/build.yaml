@@ -15,7 +15,7 @@ jobs:
         if: runner.os == 'Linux' 
         run: sudo apt-get install -y ninja-build 
 
-      - uses: secondlife/action-autobuild@v4
+      - uses: secondlife/action-autobuild@v5
   release:
     needs: build
     runs-on: [ubuntu-latest]
